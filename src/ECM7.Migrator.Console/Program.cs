@@ -37,6 +37,9 @@ namespace ECM7.Migrator.Console
 					case MigratorConsoleMode.List:
 						List(parameters);
 						break;
+                    case MigratorConsoleMode.Initialize:
+                        Initialize(parameters);
+                        break;
 					case MigratorConsoleMode.Help:
 						PrintUsage(parameters);
 						break;
@@ -106,6 +109,14 @@ namespace ECM7.Migrator.Console
 				}
 			}
 		}
+
+        public static void Initialize(CommandLineParams parameters)
+        {
+            using (Migrator migrator = MigratorFactory.CreateMigrator(parameters.config))
+            {
+                migrator.Initialize();
+            }
+        }
 
 		/// <summary>
 		/// Show usage information and help.

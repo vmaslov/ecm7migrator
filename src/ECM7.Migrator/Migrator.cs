@@ -123,6 +123,15 @@ namespace ECM7.Migrator
 			}
 		}
 
+        public void Initialize()
+        {
+            IList<long> availableMigrations = migrationAssembly.MigrationsTypes.Select(mInfo => mInfo.Version).ToList();
+            foreach (long version in availableMigrations)
+            {
+                provider.MigrationApplied(version, Key);
+            }
+        }
+
 		/// <summary>
 		/// Выполнение миграции
 		/// </summary>

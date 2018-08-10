@@ -16,6 +16,7 @@ namespace ECM7.Migrator.Console
 				.Add("t|timeout=", "Specify the timeout of command  execution (in seconds)", (int ct) => config.CommandTimeout = ct)
 				.Add("q|quotes=", "Specifies whether to quote names", q => config.NeedQuotesForNames = q.ToLower() == "true" || q == "1")
 				.Add("l|list", "Show list of available migrations", v => { if (v != null) { mode = MigratorConsoleMode.List; } })
+                .Add("i|initialize", "Initialize schema info (write history of all existing migrations to database)", i => { if (i != null) { mode = MigratorConsoleMode.Initialize; } })
 				.Add("h|help|?", "Show help", v => { if (v != null) { mode = MigratorConsoleMode.Help; } });
 				
 			if (args.Length < 3)

@@ -15,6 +15,12 @@
 		/// </summary>
 		List,
 
+
+        /// <summary>
+        /// Initialize <c>SchemaInfo</c> table.
+        /// </summary>
+        Initialize,
+
 		/// <summary>
 		/// Отобразить справку
 		/// </summary>
